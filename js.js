@@ -22,6 +22,8 @@ let size = 100;
 let gameStarted = false;
 let gameRunning = false;
 
+let colition = 0
+
 const maxSpeed = 100
 
 // fps 0
@@ -58,16 +60,22 @@ function step() {
     //     gameRunning = false
     // }
 
+    if(colition > 10){
+        gameRunning = false
+    }
+
 
     // cols
     if (x + size > canvas.width || x < 0) {
         dx = -dx;
         playSound();
+        colition++;
         // size += size * 0.1
     }
     if (y + size > canvas.height || y < 0) {
         dy = -dy;
         playSound();
+        colition++;
         // size += size * 0.1
     }
     //   end game
